@@ -9,3 +9,5 @@
 /resource-bundles/build/
 /resource-bundles/target/
 nb-configuration.xml
+faces-config.NavData
+*.*~
