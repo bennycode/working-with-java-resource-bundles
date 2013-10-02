@@ -3,11 +3,13 @@ package de.bennyn.samples.resource.bundles.beans;
 import java.io.Serializable;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import javax.annotation.ManagedBean;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 
-@ManagedBean
+@Named  
+@SessionScoped
 public class ResourceBundleBean implements Serializable {
 
     public ResourceBundleBean() {
