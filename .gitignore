@@ -4,3 +4,8 @@
 *.jar
 *.war
 *.ear
+/.project
+/resource-bundles/nbproject/private/
+/resource-bundles/build/
+/resource-bundles/target/
+nb-configuration.xml
