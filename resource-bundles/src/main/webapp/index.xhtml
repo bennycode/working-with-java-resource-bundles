@@ -7,29 +7,25 @@
     </h:head>
     <h:body>
         <p>
-            Hello World:<br/>
-            <h:outputText value="#{resourceBundleBean.sayHello()}" />
-        </p>   
-        <p>
-            Access properties with a simple key:<br/>
-            <h:outputText value="#{sampleMessages.hello_world}" />
-        </p>
-        <p>
-            Access properties with a points-separated key:<br/>
-            <h:outputText value="#{sampleMessages['hello.world']}" />
-        </p>
-        <p>
-            Access properties with a managed bean:<br/>
-            <h:outputText value="#{resourceBundleBean.getValue('de.bennyn.samples.messages.sample-messages.properties', 'hello_world')}" />
-        </p>
-        <p>
             Language code:<br/>
             <h:outputText value="#{resourceBundleBean.getLanguageCode()}" />
         </p>
         <p>
-            Test:<br/>
-            <h:outputText value="#{resourceBundleBean.getSomething()}" />
-        </p>   
+            Access property with a simple key:<br/>
+            <h:outputText value="#{sampleMessages.hello_world}" />
+        </p>
+        <p>
+            Access property with a points-separated key:<br/>
+            <h:outputText value="#{sampleMessages['hello.world']}" />
+        </p>
+        <p>
+            Access property with a managed bean (by expression):<br/>
+            <h:outputText value="#{resourceBundleBean.getValueByExpression('sampleMessages', 'hello.world')}" />
+        </p>
+        <p>
+            Access property with a managed bean (by resource bundle base name):<br/>
+            <h:outputText value="#{resourceBundleBean.getValueByResourceBundle('de.bennyn.samples.messages.sample-messages', 'hello_world')}" />
+        </p>
     </h:body>
 </html>
 

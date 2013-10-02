@@ -7,22 +7,22 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-
-@Named  
+@Named
 @SessionScoped
 public class ResourceBundleBean implements Serializable {
 
     public ResourceBundleBean() {
     }
-    
-    public String sayHello() {
-        return "Hello World!";
+
+    public String getValueByExpression(String var, String key) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String expression = "#{" + var + "['" + key + "']}";
+        return context.getApplication().evaluateExpressionGet(context, expression, String.class);
     }
 
-    public String getSomething() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        String expression = "#{sampleMessages['hello.world']}";
-        return context.getApplication().evaluateExpressionGet(context, expression, String.class);
+    public String getValueByResourceBundle(String baseName, String key) {
+        ResourceBundle messageBundle = ResourceBundle.getBundle(baseName);
+        return messageBundle.getString(key);
     }
 
     public String getLanguageCode() {
@@ -30,10 +30,7 @@ public class ResourceBundleBean implements Serializable {
         return locale.getLanguage();
     }
 
-    public String getValue(String bundleName, String key) {
-        // FacesContext context = FacesContext.getCurrentInstance();
-        // String bundleName = context.getApplication().getMessageBundle();
-        ResourceBundle messageBundle = ResourceBundle.getBundle(bundleName);
-        return messageBundle.getString(key);
+    public String sayHello() {
+        return "Hello World!";
     }
 }
